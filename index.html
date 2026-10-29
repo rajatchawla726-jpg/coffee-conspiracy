@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Coffee Conspiracy ☕</title>
+<meta name="description" content="Something is brewing… and it’s not just coffee.">
+<meta property="og:title" content="The Coffee Conspiracy ☕">
+<meta property="og:description" content="A tiny mystery. A few choices. One unexpected ending.">
+<meta name="theme-color" content="#f6ede0">
+<style>
+:root{--bg:#f6ede0;--card:#fffaf2;--ink:#3a2418;--mut:#8b6f5c;--blush:#e9c4bb;--car:#c0793a;--line:#e6d6c0;--sh:0 18px 40px -18px rgba(58,36,24,.35);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b110c;--card:#2a1a12;--ink:#f6ede0;--mut:#c2a791;--blush:#a86f66;--car:#e0924c;--line:#46301f;--sh:0 18px 40px -18px #000;color-scheme:dark}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%}
+body{background:radial-gradient(circle at 20% 0,color-mix(in srgb,var(--blush) 35%,transparent),transparent 55%),var(--bg);color:var(--ink);font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;display:flex;justify-content:center;overflow-x:hidden;min-height:100vh;min-height:100dvh}
+.bean{position:fixed;width:14px;height:22px;border-radius:50%;background:var(--ink);opacity:.07;animation:fl 9s ease-in-out infinite;pointer-events:none}
+@keyframes fl{50%{transform:translateY(-22px) rotate(25deg)}}
+main{width:100%;max-width:460px;padding:18px 18px 28px;display:flex;flex-direction:column;position:relative}
+#dots{display:flex;gap:6px;height:6px;margin:4px 0 14px}
+#dots i{flex:1;border-radius:4px;background:var(--line);transition:background .5s}
+#dots i.on{background:var(--car)}
+#st{flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px;outline:0;opacity:0}
+#st.in{animation:in .6s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.eye{font:600 12px/1 system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--car)}
+h1{font-size:clamp(30px,8.5vw,40px);line-height:1.1;margin:0;font-weight:700;outline:0}
+h2{font-size:clamp(23px,6.5vw,29px);line-height:1.2;margin:0;outline:0}
+p{margin:0;line-height:1.5;font-size:17px;color:var(--mut)}
+.hero{display:flex;justify-content:center;margin:2px 0}
+.steam{stroke:var(--mut);fill:none;stroke-width:3;stroke-linecap:round;opacity:0;animation:st 3.2s ease-in-out infinite}
+.steam:nth-of-type(2){animation-delay:.8s}.steam:nth-of-type(3){animation-delay:1.6s}
+@keyframes st{0%{opacity:0;transform:translateY(8px)}40%{opacity:.7}100%{opacity:0;transform:translateY(-14px)}}
+.cf{transform-origin:bottom;animation:fill 2.2s .3s ease-out both}
+@keyframes fill{from{transform:scaleY(0)}}
+.btn{font:600 17px system-ui,sans-serif;color:var(--card);background:var(--ink);border:0;border-radius:16px;padding:16px 18px;cursor:pointer;width:100%;box-shadow:var(--sh);transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn.alt{background:var(--card);color:var(--ink);border:2px solid var(--line);box-shadow:none}
+.btn.car{background:var(--car);color:#fff}
+.btn:disabled{opacity:.4;box-shadow:none}
+:focus-visible{outline:3px solid var(--car);outline-offset:3px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{font:500 17px/1.35 Georgia,serif;text-align:left;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:16px;padding:16px;cursor:pointer;box-shadow:var(--sh);transition:transform .15s,border-color .2s}
+.opt:active{transform:scale(.98)}.opt:hover{border-color:var(--car)}
+.bub{background:var(--card);border:2px solid var(--line);border-left:5px solid var(--car);border-radius:14px;padding:16px;color:var(--ink);font-size:18px;margin-bottom:12px;animation:in .5s both}
+.link{background:none;border:0;color:var(--mut);font:14px system-ui,sans-serif;text-decoration:underline;cursor:pointer;padding:8px;align-self:center}
+.table{display:flex;gap:10px;justify-content:center}
+.obj{flex:1;aspect-ratio:1;font-size:40px;background:var(--card);border:2px solid var(--line);border-radius:20px;cursor:pointer;box-shadow:var(--sh);animation:fl 5s ease-in-out infinite;transition:border-color .2s,background .2s}
+.obj:nth-child(2){animation-delay:.7s}.obj:nth-child(3){animation-delay:1.4s}
+.obj[aria-pressed=true]{border-color:var(--car);background:color-mix(in srgb,var(--blush) 40%,var(--card));transform:translateY(-8px) scale(1.05);animation:none}
+#cap{min-height:48px;text-align:center;font-style:italic}
+.rain{height:6px;border-radius:4px;background:var(--line);overflow:hidden}
+.rain i{display:block;height:100%;width:100%;background:var(--blush)}
+input,textarea{width:100%;font:17px system-ui,sans-serif;padding:14px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink)}
+label{font:600 13px system-ui,sans-serif;color:var(--mut);display:block;margin:0 0 6px}
+.f{display:flex;flex-direction:column;gap:12px}
+.meter{height:8px;background:var(--line);border-radius:6px;overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:var(--car);transition:width 3s ease-in-out}
+.tw{font-size:clamp(26px,7.5vw,34px);font-weight:700;line-height:1.15;color:var(--ink);animation:in .8s both}
+.d1{animation:in .8s 1.4s both}.d2{animation:in .8s 2.9s both}.d3{animation:in .8s 4.2s both}
+.hide{display:none}
+.card{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--sh)}
+em{color:var(--car)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}.bean{display:none}}
+</style>
+</head>
+<body>
+<i class="bean" style="left:8%;top:12%" aria-hidden="true"></i><i class="bean" style="right:10%;top:30%;animation-delay:2s" aria-hidden="true"></i><i class="bean" style="left:14%;bottom:12%;animation-delay:4s" aria-hidden="true"></i>
+<main><div id="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><section id="st" tabindex="-1" aria-live="polite"></section></main>
+<script>
+(function(){
+var Q=new URLSearchParams(location.search);
+function cl(s,n){return (s||"").replace(/[<>]/g,"").trim().slice(0,n)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+var him=cl(Q.get("f"),24),her=cl(Q.get("t"),24),note=cl(Q.get("m"),160);
+var shared=Q.has("f")||Q.has("t")||Q.has("m");
+var H=esc(him||"Someone"),R=esc(her||"you");
+var S={},cur="",tk=[],iv,sel=null,st=document.getElementById("st");
+function T(f,ms){tk.push(setTimeout(f,ms))}
+function clr(){tk.forEach(clearTimeout);tk=[];clearInterval(iv)}
+function $(s){return st.querySelector(s)}
+function cup(fill){return '<svg viewBox="0 0 200 170" width="190" role="img" aria-label="A cup of coffee with steam"><defs><clipPath id="c"><path d="M40 70h104v34a52 52 0 0 1-104 0z"/></clipPath></defs><path class="steam" d="M70 56c-8-10 8-16 0-28"/><path class="steam" d="M92 56c-8-10 8-16 0-28"/><path class="steam" d="M114 56c-8-10 8-16 0-28"/><ellipse cx="92" cy="152" rx="82" ry="10" fill="var(--blush)"/><path d="M144 84h10a20 20 0 0 1 0 40h-14" fill="none" stroke="var(--ink)" stroke-width="7"/><path d="M40 70h104v34a52 52 0 0 1-104 0z" fill="var(--card)" stroke="var(--ink)" stroke-width="7" stroke-linejoin="round"/><g clip-path="url(#c)"><rect class="'+(fill?"cf":"")+'" x="40" y="'+(fill?"72":"84")+'" width="104" height="90" fill="var(--car)"/></g></svg>'}
+var SC={
+intro:function(){return '<div class="eye">Something is brewing… and it’s not just coffee.</div><div class="hero">'+cup()+'</div>'+(her?'<p>For '+R+'</p>':'')+'<h1>I’ve got a tiny mystery for you…</h1><p>A few choices. A little curiosity. One unexpected ending.</p><button class="btn" data-a="go" data-v="q1">Okay, I’m curious.</button>'+(shared?'':'<button class="link" data-a="go" data-v="setup">Creator? Personalize &amp; share this game</button>')},
+setup:function(){return '<div class="eye">Creator corner</div><h2>Make it yours</h2><p>All optional. Your details live only in the link you share. No account, no database.</p><div class="f"><div><label for="f">Your first name</label><input id="f" maxlength="24" autocomplete="off" value="'+esc(him)+'"></div><div><label for="t">Her first name or nickname</label><input id="t" maxlength="24" autocomplete="off" value="'+esc(her)+'"></div><div><label for="m">A personal message (optional)</label><textarea id="m" rows="2" maxlength="160">'+esc(note)+'</textarea></div></div><button class="btn car" data-a="mk">Create my shareable link</button><div id="out"></div><button class="link" data-a="go" data-v="intro">Back</button>'},
+q1:function(){return '<div class="eye">Choice 1 of 3</div><h2>It’s 3 p.m. Nothing is planned. Which afternoon wins?</h2><div class="opts" id="o"><button class="opt" data-a="p1" data-v="A">🚆 Jump on the next train to a town you’ve never heard of.</button><button class="opt" data-a="p1" data-v="B">📚 Wander into a bookshop and lose all sense of time.</button></div>'},
+q2:function(){return '<div class="eye">Choice 2 of 3 · The table test</div><h2>Rain in nine seconds. One thing goes in your bag.</h2><div class="rain" aria-hidden="true"><i id="rb"></i></div><div class="table"><button class="obj" data-a="ins" data-v="cup" aria-pressed="false" aria-label="Coffee cup">☕</button><button class="obj" data-a="ins" data-v="book" aria-pressed="false" aria-label="Book">📖</button><button class="obj" data-a="ins" data-v="cam" aria-pressed="false" aria-label="Camera">📷</button></div><p id="cap">Tap an object to inspect it.</p><div id="o"><button class="btn" id="tk" data-a="take" disabled>Take it</button></div>'},
+q3:function(){return '<div class="eye">Choice 3 of 3 · Chemistry check</div><h2>Rain. One umbrella. Two people. Zero plans. Who picks the next stop?</h2><div class="opts" id="o"><button class="opt" data-a="p3" data-v="1">You pick. I’ll act like I had a plan.</button><button class="opt" data-a="p3" data-v="2">Coin flip. Loser buys the pastry.</button><button class="opt" data-a="p3" data-v="3">We follow the smell of coffee and see who’s right.</button></div>'},
+twist:function(){return '<div id="scan"><p id="sct" class="eye">Calculating chemistry…</p><div class="meter"><i id="m"></i></div></div><div id="rv" class="hide f"><div class="tw">Plot twist: I had an ulterior motive. ☕</div><h2 class="d1">I was looking for an excuse to ask you something.</h2><div class="card d2"><p style="color:var(--ink)">So… how about we replace these pixels with actual coffee and see if we vibe just as well in real life?</p>'+(note?'<p style="margin-top:10px"><em>“'+esc(note)+'”</em></p>':'')+(him?'<p style="margin-top:10px">— '+H+'</p>':'')+'</div><div class="opts d3"><button class="btn car" data-a="go" data-v="yes">Okay, let’s do it ☕</button><button class="btn alt" data-a="go" data-v="conv">Convince me 😏</button></div></div>'},
+conv:function(){return '<div class="hero">'+cup()+'</div><h2>Good coffee, better company, and absolutely no boring interview questions.</h2><p>That’s my offer.</p><button class="btn car" data-a="go" data-v="yes">Fine, you’ve got me ☕</button><button class="btn alt" data-a="go" data-v="intro">Replay the mystery</button>'},
+yes:function(){return '<div class="hero">'+cup(1)+'</div><h2 id="yh">Excellent. Now we just need to pick a day.</h2><p id="yp">No pressure. Pick a vibe, or skip it and just message me.</p><div class="opts" id="yo"><button class="btn" data-a="day" data-v="This weekend">This weekend</button><button class="btn alt" data-a="day" data-v="Another day">Another day</button></div><button class="link" data-a="go" data-v="intro">Play again</button>'}
+};
+function dots(){var m={q1:1,q2:2,q3:3,twist:4,conv:5,yes:5}[cur]||0;[].forEach.call(document.querySelectorAll("#dots i"),function(d,i){d.className=i<m?"on":""})}
+function go(n){clr();cur=n;if(n==="intro"||n==="q1"){S={};sel=null}
+st.classList.remove("in");st.innerHTML=SC[n]();void st.offsetWidth;st.classList.add("in");dots();
+if(n==="q2")timer();if(n==="twist")twist();
+var h=st.querySelector("h1,h2");if(h){h.tabIndex=-1;try{h.focus({preventScroll:true})}catch(e){}}window.scrollTo(0,0)}
+function react(t,nx){$("#o").innerHTML='<p class="bub">'+t+'</p><button class="btn" data-a="go" data-v="'+nx+'">Continue</button>';var b=$("#o .btn");if(b)b.focus({preventScroll:true})}
+function timer(){var t0=Date.now(),r=$("#rb");iv=setInterval(function(){var p=1-(Date.now()-t0)/9000;r.style.width=Math.max(0,p*100)+"%";if(p<=0){clearInterval(iv);fin("none")}},100)}
+var D={cup:"A cup still warm enough to matter.",book:"Dog-eared, with a receipt for a bookmark.",cam:"Film camera. Six shots left."};
+function fin(v){clearInterval(iv);S.obj=v;var tail=S.c1==="A"?" Fits someone who boards trains without a plan.":" Fits someone who disappears into bookshops.";
+var m={cup:"Coffee first. Priorities intact."+tail,book:"A book in the bag means you’re never really waiting. Noted."+tail,cam:"Someone who notices things. I’ll try to be worth a photo."+tail,none:"You let the rain take everything. Iconic. Moving on."}[v];react(m,"q3")}
+function twist(){var l=["Calculating chemistry…","Counting coffee references…","Verifying charm levels…"],i=0;requestAnimationFrame(function(){requestAnimationFrame(function(){$("#m").style.width="100%"})});
+iv=setInterval(function(){i=Math.min(i+1,2);var e=$("#sct");if(e)e.textContent=l[i]},1000);
+T(function(){clearInterval(iv);$("#scan").classList.add("hide");var r=$("#rv");r.classList.remove("hide");var h=r.querySelector(".tw");h.tabIndex=-1;h.focus({preventScroll:true})},3300)}
+function act(a,v){
+if(a==="go")return go(v);
+if(a==="p1"){S.c1=v;return react(v==="A"?"Bold. Chaotic, but with excellent taste in destinations. I respect it.":"Dangerous answer. Nobody leaves a bookshop in under an hour, and nobody wants to.","q2")}
+if(a==="ins"){sel=v;[].forEach.call(st.querySelectorAll(".obj"),function(b){b.setAttribute("aria-pressed",b.dataset.v===v)});$("#cap").textContent=D[v];$("#tk").disabled=false;return}
+if(a==="take")return sel&&fin(sel);
+if(a==="p3"){S.c3=v;var x={cup:"(Also: you picked the coffee. This part writes itself.)",book:"(You’d read the café menu like a novel.)",cam:"(You’d photograph the umbrella. I’d hold it.)",none:"(You also abandoned your bag, so I’m in charge of the umbrella.)"}[S.obj]||"";
+return react({1:"Deal. I’ll pretend I planned this. You pretend you believe me.",2:"Loser buys the pastry. I’ve been practising my coin-flip face.",3:"Finally, someone with a sense of direction that actually matters."}[v]+" "+x,"twist")}
+if(a==="day"){var w=v==="This weekend"?"This weekend works. Message me and I’ll handle the rest.":"Another day is fine. The coffee isn’t going anywhere.";$("#yh").textContent="Locked in. ☕";$("#yp").textContent=w;
+var txt="Okay, I’m in for coffee ☕ "+v.toLowerCase()+".";$("#yo").innerHTML='<a class="btn car" style="display:block;text-align:center;text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(txt)+'">Send '+(him?H:"him")+' my answer</a>';return}
+if(a==="mk"){var f=cl($("#f").value,24),t=cl($("#t").value,24),m=cl($("#m").value,160),p=new URLSearchParams();if(f)p.set("f",f);if(t)p.set("t",t);if(m)p.set("m",m);
+var u=location.origin+location.pathname+(p.toString()?"?"+p.toString():"");if(location.protocol==="file:")u=location.href.split("?")[0]+"?"+p;
+$("#out").innerHTML='<div class="f" style="margin-top:6px"><label for="lk">Your link (works for anyone once the site is hosted)</label><input id="lk" readonly value="'+esc(u)+'"><button class="btn" data-a="cp">Copy link</button><a class="btn alt" style="display:block;text-align:center;text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent("☕ I made you a tiny mystery: "+u)+'">Share on WhatsApp</a><a class="btn alt" style="display:block;text-align:center;text-decoration:none" href="'+esc(u)+'">Preview it</a></div>';return}
+if(a==="cp"){var i=document.getElementById("lk");i.select();try{navigator.clipboard.writeText(i.value)}catch(e){document.execCommand("copy")}var b=st.querySelector('[data-a="cp"]');b.textContent="Copied ✓"}
+}
+st.addEventListener("click",function(e){var b=e.target.closest("[data-a]");if(b&&b.tagName==="BUTTON")act(b.dataset.a,b.dataset.v)});
+go("intro");
+})();
+</script>
+</body>
+</html>

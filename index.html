@@ -13,10 +13,10 @@
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b110c;--card:#2a1a12;--ink:#f6ede0;--mut:#c2a791;--blush:#a86f66;--car:#e0924c;--line:#46301f;--sh:0 18px 40px -18px #000;color-scheme:dark}}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;min-height:100%}
-body{background:radial-gradient(circle at 20% 0,color-mix(in srgb,var(--blush) 35%,transparent),transparent 55%),var(--bg);color:var(--ink);font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;display:flex;justify-content:center;overflow-x:hidden;min-height:100vh;min-height:100dvh}
+body{background:var(--bg);background:radial-gradient(circle at 20% 0,rgba(233,196,187,.35),transparent 55%),var(--bg);color:var(--ink);font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;display:flex;justify-content:center;overflow-x:hidden;min-height:100vh;min-height:100dvh}
 .bean{position:fixed;width:14px;height:22px;border-radius:50%;background:var(--ink);opacity:.07;animation:fl 9s ease-in-out infinite;pointer-events:none}
 @keyframes fl{50%{transform:translateY(-22px) rotate(25deg)}}
-main{width:100%;max-width:460px;padding:18px 18px 28px;display:flex;flex-direction:column;position:relative}
+main{width:100%;max-width:460px;min-height:100vh;min-height:100dvh;padding:calc(18px + env(safe-area-inset-top,0px)) 18px calc(28px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;position:relative}
 #dots{display:flex;gap:6px;height:6px;margin:4px 0 14px}
 #dots i{flex:1;border-radius:4px;background:var(--line);transition:background .5s}
 #dots i.on{background:var(--car)}
@@ -111,10 +111,12 @@ if(a==="take")return sel&&fin(sel);
 if(a==="p3"){S.c3=v;var x={cup:"(Also: you picked the coffee. This part writes itself.)",book:"(You’d read the café menu like a novel.)",cam:"(You’d photograph the umbrella. I’d hold it.)",none:"(You also abandoned your bag, so I’m in charge of the umbrella.)"}[S.obj]||"";
 return react({1:"Deal. I’ll pretend I planned this. You pretend you believe me.",2:"Loser buys the pastry. I’ve been practising my coin-flip face.",3:"Finally, someone with a sense of direction that actually matters."}[v]+" "+x,"twist")}
 if(a==="day"){var w=v==="This weekend"?"This weekend works. Message me and I’ll handle the rest.":"Another day is fine. The coffee isn’t going anywhere.";$("#yh").textContent="Locked in. ☕";$("#yp").textContent=w;
-var txt="Okay, I’m in for coffee ☕ "+v.toLowerCase()+".";$("#yo").innerHTML='<a class="btn car" style="display:block;text-align:center;text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(txt)+'">Send '+(him?H:"him")+' my answer</a>';return}
+var txt="Okay, I’m in for coffee ☕ "+v.toLowerCase()+".";
+var igUser="YOUR_INSTAGRAM_USERNAME";
+$("#yo").innerHTML='<a class="btn car" style="display:block;text-align:center;text-decoration:none" target="_blank" rel="noopener" href="https://ig.me/m/'+igUser+'">Let’s talk on Instagram ↗</a><p style="text-align:center;font-size:13px;margin-top:8px">If Instagram doesn’t open, visit <a href="https://www.instagram.com/'+igUser+'/" target="_blank" rel="noopener">the profile</a>.</p>';return}
 if(a==="mk"){var f=cl($("#f").value,24),t=cl($("#t").value,24),m=cl($("#m").value,160),p=new URLSearchParams();if(f)p.set("f",f);if(t)p.set("t",t);if(m)p.set("m",m);
 var u=location.origin+location.pathname+(p.toString()?"?"+p.toString():"");if(location.protocol==="file:")u=location.href.split("?")[0]+"?"+p;
-$("#out").innerHTML='<div class="f" style="margin-top:6px"><label for="lk">Your link (works for anyone once the site is hosted)</label><input id="lk" readonly value="'+esc(u)+'"><button class="btn" data-a="cp">Copy link</button><a class="btn alt" style="display:block;text-align:center;text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent("☕ I made you a tiny mystery: "+u)+'">Share on WhatsApp</a><a class="btn alt" style="display:block;text-align:center;text-decoration:none" href="'+esc(u)+'">Preview it</a></div>';return}
+$("#out").innerHTML='<div class="f" style="margin-top:6px"><label for="lk">Your link (works for anyone once the site is hosted)</label><input id="lk" readonly value="'+esc(u)+'"><button class="btn" data-a="cp">Copy link</button><a class="btn alt" style="display:block;text-align:center;text-decoration:none" target="_blank" rel="noopener" href="https://ig.me/m/YOUR_INSTAGRAM_USERNAME">Open Instagram DM</a><p style="font-size:13px">To send the game, copy the link above and paste it into your Instagram chat.</p><a class="btn alt" style="display:block;text-align:center;text-decoration:none" href="'+esc(u)+'">Preview it</a></div>';return}
 if(a==="cp"){var i=document.getElementById("lk");i.select();try{navigator.clipboard.writeText(i.value)}catch(e){document.execCommand("copy")}var b=st.querySelector('[data-a="cp"]');b.textContent="Copied ✓"}
 }
 st.addEventListener("click",function(e){var b=e.target.closest("[data-a]");if(b&&b.tagName==="BUTTON")act(b.dataset.a,b.dataset.v)});
